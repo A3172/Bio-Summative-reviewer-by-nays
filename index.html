@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chez Landfill: Biology Reviewer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Alegreya:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#c9b790;--paper:#f3ead2;--ink:#2b2418;--ketchup:#b3261e;--mustard:#d9a21b;--bag:#1f2a22;--dim:#6b5d44;--line:#a89774;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#2a2519;--ink:#efe5c8;--ketchup:#ef6b5f;--mustard:#f0c24a;--bag:#0c120e;--dim:#b3a583;--line:#5a4f38}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#2a2519;--ink:#efe5c8;--ketchup:#ef6b5f;--mustard:#f0c24a;--bag:#0c120e;--dim:#b3a583;--line:#5a4f38}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 Alegreya,Georgia,serif}
+header{background:var(--bag);color:#f3ead2;text-align:center;padding:2rem 1rem 1.5rem;border-bottom:10px dashed var(--mustard)}
+h1{font:2.4rem/1 Bungee,Impact,sans-serif;margin:0;color:var(--mustard);transform:rotate(-2deg);text-shadow:3px 3px 0 var(--ketchup)}
+header p{margin:.8rem auto 0;max-width:30ch;font-style:italic}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bag);display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;padding:.5rem}
+.bar a,.bar button{font:.8rem Bungee,sans-serif;background:var(--mustard);color:#2b2418;border:0;padding:.45rem .7rem;text-decoration:none;border-radius:3px;cursor:pointer}
+.bar button{background:var(--ketchup);color:#fff}
+.bar a:focus-visible,.bar button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+main{max-width:46rem;margin:0 auto;padding:1rem}
+section{background:var(--paper);margin:2rem 0;padding:1.2rem 1rem 1.4rem;border:2px solid var(--line);box-shadow:6px 8px 0 rgba(0,0,0,.35);position:relative}
+section:nth-of-type(odd){transform:rotate(-.4deg)}section:nth-of-type(even){transform:rotate(.4deg)}
+section::before{content:"";position:absolute;top:-12px;left:42%;width:5rem;height:1.5rem;background:rgba(217,162,27,.7);transform:rotate(3deg)}
+h2{font:1.6rem/1.1 Bungee,Impact,sans-serif;margin:.5rem 0 0;color:var(--ketchup)}
+.sub{margin:.2rem 0 1rem;color:var(--dim);font-style:italic}
+h3{font:1.05rem Bungee,sans-serif;margin:1.4rem 0 .4rem;padding-bottom:.2rem;border-bottom:3px double var(--line)}
+dl{margin:0}
+.item{padding:.55rem 0;border-bottom:1px dotted var(--line)}
+dt{font-weight:700;color:var(--ketchup)}
+dd{margin:.1rem 0 0}
+dd ul{margin:.3rem 0 0;padding-left:1.2rem}
+.cover dd{filter:blur(7px);cursor:pointer;user-select:none}
+.cover dd.show{filter:none}
+.cover dd:focus-visible{outline:2px solid var(--mustard)}
+.note{font-style:italic;color:var(--dim);margin:.6rem 0 0}
+footer{text-align:center;padding:2rem 1rem;color:var(--dim);font-style:italic}
+@media (prefers-reduced-motion:no-preference){h1{animation:wob 4s ease-in-out infinite}@keyframes wob{50%{transform:rotate(1.5deg)}}}
+</style>
+</head>
+<body>
+<header>
+<h1>Chez Landfill</h1>
+<p>Fine dining on a hill of rubbish. Today’s special: Biology.</p>
+</header>
+<div class="bar">
+<a href="#c1">Appetizers</a><a href="#c2">Mains</a><a href="#c3">Desserts</a><a href="#c4">Specials</a>
+<button id="q" aria-pressed="false">Cover answers</button>
+</div>
+<main id="m"></main>
+<footer>Tap a blurred answer to reveal it. No refunds on forgotten terms.</footer>
+<script>
+const M=[
+{id:"c1",t:"Appetizers",s:"Classification and Evolutionary Relationships",g:[
+{h:"Taxonomy Basics",i:[
+["Structural characteristics","Physical features and bodily structures of organisms."],
+["Systematic taxonomy","Scientific study of the kinds and diversity of organisms and of all the relationships among them."],
+["Taxonomy","Scientific discipline of naming, describing, and classifying living organisms into hierarchical groups."],
+["Phylogenetic","Study of the evolutionary relationships among organisms."],
+["Taxonomic hierarchy","Organizes organisms into groups: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species, Sub Species."]]},
+{h:"Species Diversity",i:[
+["Species diversity","Number of different species in an area and their relative abundance. Measured by richness and evenness."],
+["Species richness","Total number of different species living in a habitat or unit."],
+["Species evenness","Component of diversity based on relative abundance: individuals in a species relative to the total individuals in all species in the system."],
+["Tropical rainforest","Thousands of distinct flora and fauna species."],
+["Coral reefs","Soft reefs, colorful reef fishes, sea turtles, mollusks, microscopic plankton."],
+["Temperate forests vs desert","Forests: diverse trees, birds, mammals, fungi. Desert: low diversity, since only a specialized handful of plants and animals survive harsh climates."],
+["Why it matters","Healthy ecosystems hold a diversity of species, and each species plays a role in ecosystem function. Species and ecosystem diversity maintain ecosystem services."]]},
+{h:"Phylogeny and Trees",i:[
+["Phylogeny","Evolutionary history of a species or group of species."],
+["Phylogenetic tree","Illustration of the hypothesized degrees of evolutionary relationship among a set of taxa (singular: taxon)."],
+["Terminal taxa","Individual organisms, species, or groups at the tips of the tree."],
+["Branch","Line segment that makes up the tree. Represents a lineage."],
+["Nodes","Where lineages diverge: a speciation event from a common ancestor. Nodes close to the terminal taxa mean closely related. Nodes far from them mean distant relatives."],
+["Root","Trunk at the base. Most recent common ancestor of all taxa."]]},
+{h:"Cladistics",i:[
+["Cladistics","Classification based on shared, inherited evolutionary descent rather than general physical similarity. Organizes taxa into clades (monophyletic groups)."],
+["Clades","Groups with a single common ancestor and all its descendants. Show evolutionary relationships among living things."],
+["Monophyletic","Most recent common ancestor of a group and all of its descendants."],
+["Polyphyletic","Doesn’t include the common ancestor but includes all descendants (as noted in your sheet)."],
+["Paraphyletic","Includes the common ancestor but not all descendants."],
+["Cladogram","Graphical representation of the hypothetical relationship between groups of organisms."],
+["Shared + derived","Two or more lineages have the trait, and it is a new evolutionary modification. Called a synapomorphy: arose in the most recent common ancestor of a group and passed to descendants, absent in older ancestors."],
+["Shared + ancestral","Two or more lineages have the trait, and it is old, inherited unmodified from a deep ancestor. Called a symplesiomorphy."],
+["Making a cladogram","<ul><li>Choose the organisms</li><li>Identify the characteristics</li><li>Identify shared and derived characteristics</li><li>Draw the cladogram</li></ul>"]]}]},
+{id:"c2",t:"Main Courses",s:"Reproduction",g:[
+{h:"Two Flavors",i:[
+["Reproduction","Essential characteristic of living things. Process where organisms create new individuals to continue the species."],
+["Asexual","<ul><li>Single parent, no union of gametes, no fertilization</li><li>Offspring genetically and physically identical to the parent</li><li>Short generation time</li><li>No genetic variation</li></ul>"],
+["Sexual","<ul><li>Comes from both parents, using gametes</li><li>Offspring are unique, with variation</li><li>Time-consuming</li><li>Higher organisms are more likely than prokaryotes to have it</li></ul>"]]},
+{h:"Asexual Methods",i:[
+["Binary fission","Organism divides in two, each with one copy of genetic material. Parent cell, DNA duplicates, cytoplasm divides, two daughter cells."],
+["Budding","A bud forms from a small part of the parent body, then detaches and develops into a new organism."],
+["Fragmentation","Individual breaks into parts, followed by regeneration. Can happen by accidental damage, predators, or naturally."],
+["Regeneration","Power of growing a new organism from a lost body part."],
+["Parthenogenesis","Embryo develops from an unfertilized egg."],
+["Vegetative propagation","Genetically identical plant clones grow from stems, roots, or leaves instead of seeds."]]},
+{h:"Sexual Methods",i:[
+["External fertilization","Aquatic environment. Eggs and sperm are both released, and sperm enters the egg."],
+["Internal fertilization","Sperm fertilizes the egg inside the female body."],
+["Self-pollination","Pollen arrives at the stigma of the same flower or at the ovule."],
+["Cross-pollination","Pollen transfers from one flower to another. Occurs naturally."],
+["Double fertilization","Angiosperms: two sperm cells from one pollen grain fertilize two different cells in the ovule. One sperm fuses with the egg to form a diploid zygote. The other fuses with the central cell’s polar nuclei to form a triploid (3n) cell."]]}]},
+{id:"c3",t:"Desserts",s:"Plant and Animal Development",g:[
+{h:"Animal Development",i:[
+["Growth","Increase in mass and size. Cell multiplication and more intracellular substance."],
+["Development","Physiological and functional maturation. Increase in capacity and skill to function effectively."],
+["Fertilization","Initiates development: sperm and egg fuse into a zygote. Cleavage, then blastula. Gastrulation: ectoderm, mesoderm, endoderm. Organogenesis (neural tube and notochord), leading to a recognizable species."]]},
+{h:"Baby Milestones",i:[
+["4 months","Babbles, holds steady, rolls tummy to back, reaches for a toy with one hand."],
+["5 months","Responds to sound with sounds, sits without support, looks around."],
+["9 months","Understands “no”, plays peek-a-boo, points with fingers, crawls."],
+["12 months","Says words like “mama”, uses things correctly, pulls up to stand, follows simple directions. Sensorimotor exploration."],
+["1 to 3 years","Walks unsupported, explores, grows vocabulary from words to short phrases, tests independence."],
+["3 to 6 years","Grows motor skills, symbolic and pretend play."]]},
+{h:"Life Stages",i:[
+["Childhood","Logical thinking, academic learning, peer relationships, developing self-concept and morality."],
+["Puberty","Growth spurts, sexual maturation, body composition, abstract thinking, asynchronous brain maturation, neural previewing, myelination. Identity search, autonomy, peer influence, emotional fluctuation."],
+["Early adulthood","Physical peak, cognitive growth, psychosocial tasks."],
+["Middle adulthood","Physical change, cognitive stability, psychological tasks."],
+["Late adulthood","Physical decline, cognitive and memory shift, psychosocial tasks."]]},
+{h:"Plant Development",i:[
+["Plant stages","<ul><li>Germination</li><li>Seeding stage</li><li>Vegetative growth</li><li>Reproductive stage</li><li>Maturation</li></ul>"],
+["Vegetable stages","<ul><li>Leaf development</li><li>Photosynthesis peak</li><li>Stem and branch expansion</li><li>Root system strengthening</li><li>Biomass accumulation</li></ul>"],
+["Seed development","First organ out is the radicle (embryonic root). The short tip breaks through the soil. The epicotyl spreads its first foliage."],
+["Seedling stage","First true leaves emerge, roots expand, stem strengthens, rapid surge in biomass."],
+["Reproductive","Hormonal and emotional cues, inflorescences emerge, seed and fruit formation."],
+["Maturation","Cell differentiation and specialization, cell wall thickening, natural and metabolic maturation."],
+["Indeterminate growth","Plant keeps producing new structures indefinitely through its lifespan instead of stopping at a genetically predetermined size."]]}]},
+{id:"c4",t:"Chef’s Specials",s:"Nutrition",g:[
+{h:"Ways to Eat",i:[
+["Nutrition","Any substance required for growth and maintenance of an organism."],
+["Autotrophic","Synthesize own food from simple inorganic substances using sunlight and chlorophyll. Green plants, algae, cyanobacteria."],
+["Heterotrophic","Cannot make own food, relies on other organisms."],
+["Parasitic","Uses organic sources for nourishment."],
+["Insectivorous","Plants that trap and digest insects."],
+["Saprophytic","Gets nutrients from dead or decaying organic matter."],
+["Symbiotic","Mutually beneficial: two organisms live together and share shelter and nutrients."]]},
+{h:"Plant Nutrition Steps",i:[
+["Absorb water and minerals","Through roots and root hair. Water travels in the xylem. Apoplastic pathway: cell wall to cell wall. Symplastic pathway: plasmodesmata bridges."],
+["Take in carbon dioxide","From the air, mainly through stomata in the leaves."],
+["Absorb light energy","By chlorophyll."],
+["Synthesize glucose","Light energy converts carbon dioxide and water into sugars. Oxygen is released as a by-product."],
+["Transport sugar","Sugars made in leaves move through the phloem."],
+["Use and store food","Glucose is used in cellular respiration to release usable energy."]]},
+{h:"Heterotroph Steps and Needs",i:[
+["Heterotrophic stages","Obtaining nutrients, absorption, transport and utilization."],
+["Macronutrients","Energy and structural blocks. Carbohydrates: primary source of metabolic energy. Proteins: amino acids. Fats/lipids: form cell membranes, protect vital organs, carry fat-soluble vitamins."],
+["Micronutrients","Metabolic regulators. Vitamins are organic compounds. Water-soluble: B-complex, C. Fat-soluble: A, D, E, K. Minerals are inorganic elements for structure and physiology."],
+["Universal requirement","Water."],
+["Holozoic","Animal nutrition in five steps: ingestion, digestion, absorption, assimilation, egestion/elimination."],
+["Other animal types","Parasitic and saprophytic."]]}]}
+];
+const m=document.getElementById("m");
+m.innerHTML=M.map(s=>`<section id="${s.id}"><h2>${s.t}</h2><p class="sub">${s.s}</p>`+s.g.map(g=>`<h3>${g.h}</h3><dl>`+g.i.map(i=>`<div class="item"><dt>${i[0]}</dt><dd tabindex="0">${i[1]}</dd></div>`).join("")+`</dl>`).join("")+`</section>`).join("");
+const q=document.getElementById("q");
+q.onclick=()=>{const on=m.classList.toggle("cover");q.setAttribute("aria-pressed",on);q.textContent=on?"Show answers":"Cover answers";m.querySelectorAll("dd.show").forEach(d=>d.classList.remove("show"))};
+m.addEventListener("click",e=>{const d=e.target.closest("dd");if(d)d.classList.toggle("show")});
+m.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.tagName==="DD"){e.preventDefault();e.target.classList.toggle("show")}});
+</script>
+</body>
+</html>
